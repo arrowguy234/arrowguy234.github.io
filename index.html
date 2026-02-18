@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Surinder Singh Chhabra — Portfolio</title>
+  <meta name="description" content="Portfolio of Surinder Singh Chhabra: Tableau dashboards, data science projects, experience, and CV." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="logo" href="#">Surinder Singh Chhabra</a>
+
+    <nav class="nav">
+      <a href="#dashboard">Dashboard</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+      <button id="themeBtn" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-card">
+        <p class="badge">Open to roles • Data Science / Analytics / BI</p>
+
+        <h1>Hi, I’m <span class="accent">Surinder Singh Chhabra</span>.</h1>
+        <p class="subtitle">
+          Data Science graduate student at San Diego State University with experience in spatiotemporal forecasting,
+          diffusion/transformer research, and building Tableau dashboards for KPI monitoring.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn primary" href="https://www.linkedin.com/in/surinder-singh-chhabra" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/arrowguy234" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="assets/CV.pdf" target="_blank" rel="noreferrer">Download CV (PDF)</a>
+        </div>
+
+        <div class="quick">
+          <div class="quick-item">
+            <div class="quick-k">Skills</div>
+            <div class="quick-v">Python • SQL • Tableau • PyTorch • Time-series</div>
+          </div>
+          <div class="quick-item">
+            <div class="quick-k">Contact</div>
+            <div class="quick-v">surinder.chhabra0000@gmail.com • 925-249-8204</div>
+          </div>
+          <div class="quick-item">
+            <div class="quick-k">Location</div>
+            <div class="quick-v">San Diego, CA</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="section">
+      <div class="section-head">
+        <h2>Tableau Dashboard</h2>
+        <p class="muted">Add your Tableau Public link once, and this page will show the live embed automatically.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Customer KPI Dashboard</h3>
+          <p class="muted">Tableau • Calculated fields • Filters • Automated reporting</p>
+          <p>
+            Built automated Tableau dashboards with calculated fields and filters to track conversion rate, retention, and engagement metrics,
+            reducing manual reporting by ~30%.
+          </p>
+
+          <div class="card-actions">
+            <!-- Optional: replace with the GitHub repo for your dashboard project -->
+            <a class="btn small" href="https://github.com/arrowguy234" target="_blank" rel="noreferrer">Project Repo</a>
+
+            <!-- Replace in script.js: LIVE_DASHBOARD_URL -->
+            <a class="btn small" id="liveDashLink" href="#" target="_blank" rel="noreferrer">Open Live Dashboard</a>
+          </div>
+
+          <p class="muted small" style="margin-top:10px;">
+            To make this fully interactive: publish your workbook to Tableau Public, then paste the share link into <code>script.js</code>.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Live Embed</h3>
+          <p class="muted small">
+            The embed appears here after you add your Tableau Public URL in <code>script.js</code>.
+          </p>
+
+          <div class="embed-wrap">
+            <iframe
+              id="tableauEmbed"
+              title="Tableau Dashboard Embed"
+              src=""
+              loading="lazy"
+              referrerpolicy="no-referrer"
+            ></iframe>
+
+            <div class="embed-placeholder" id="embedPlaceholder">
+              <p><strong>No Tableau link added yet.</strong></p>
+              <p class="muted">Open <code>script.js</code> and set <code>LIVE_DASHBOARD_URL</code> to your Tableau Public share link.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p class="muted">Filter by tool to scan quickly.</p>
+      </div>
+
+      <div class="filters" role="tablist" aria-label="Project filters">
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="tableau">Tableau</button>
+        <button class="chip" data-filter="python">Python</button>
+        <button class="chip" data-filter="pytorch">PyTorch</button>
+        <button class="chip" data-filter="sql">SQL</button>
+      </div>
+
+      <div class="grid" id="projectGrid">
+        <article class="card" data-tags="python pytorch">
+          <div class="card-top">
+            <h3>Multivariate Traffic Forecasting (BERT-based Spatiotemporal Modeling)</h3>
+            <p class="muted">Python • PyTorch • Time-Series • Transformers</p>
+          </div>
+          <ul class="bullets">
+            <li>Designed a BERT-based spatiotemporal traffic forecasting model with custom token/point shaping.</li>
+            <li>Built a training + inference pipeline for multivariate time-series data (speed, inflow, demand).</li>
+            <li>Modeled temporal and cross-variable dependencies; engineered lag features + temporal embeddings.</li>
+            <li>Achieved ~0.1 MAE improvement over strong baseline forecasting models.</li>
+          </ul>
+          <div class="card-actions">
+            <a class="btn small" href="https://github.com/arrowguy234" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </article>
+
+        <article class="card" data-tags="python sql tableau">
+          <div class="card-top">
+            <h3>Stock Market Predictions (Deep Learning)</h3>
+            <p class="muted">TensorFlow • Pandas • NLP • Tableau</p>
+          </div>
+          <ul class="bullets">
+            <li>Created features from financial data (technical indicators + sentiment scores).</li>
+            <li>Built a Tableau dashboard for visualizing predictions and performance.</li>
+            <li>Used Bayesian Optimization for hyperparameter tuning and improved accuracy vs baseline.</li>
+            <li>Improved prediction accuracy by 90%+ relative to baseline (as reported in project results).</li>
+          </ul>
+          <div class="card-actions">
+            <a class="btn small" href="https://github.com/arrowguy234" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <div class="section-head">
+        <h2>Experience</h2>
+      </div>
+
+      <div class="stack">
+        <div class="card">
+          <div class="row-between">
+            <h3>Research Assistant, Department of Sciences</h3>
+            <span class="muted small">May 2025 – Jul 2025 • San Diego State University (San Diego, CA)</span>
+          </div>
+          <ul class="bullets">
+            <li>Reviewed and synthesized research on diffusion models, transformers, and spatiotemporal learning to guide experimental design.</li>
+            <li>Replicated and evaluated state-of-the-art baseline models across spatiotemporal forecasting tasks for benchmarking.</li>
+            <li>Adapted multiple architectures to a newly introduced dataset, reshaping inputs and pipelines for fair comparison.</li>
+            <li>Generated experimental results to support a faculty-led research publication, validating model performance and reproducibility.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="row-between">
+            <h3>Data Analyst Intern</h3>
+            <span class="muted small">Jun 2023 – Aug 2023 • Navtark Solutions Pvt. Ltd. (Indore, India)</span>
+          </div>
+          <ul class="bullets">
+            <li>Led customer segmentation using clustering techniques, helping marketing improve targeting and increasing conversion by 14%.</li>
+            <li>Implemented data validation and profiling, increasing data accuracy by 9%.</li>
+            <li>Optimized analytical models via parameter tuning; developed Tableau dashboards for leadership KPI monitoring.</li>
+            <li>Automated Tableau reporting (calculated fields + filters), reducing manual reporting by ~30%.</li>
+            <li>Presented insights to product manager, supporting initiatives that improved customer engagement by 18%.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section">
+      <div class="section-head">
+        <h2>Education</h2>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>San Diego State University</h3>
+          <p class="muted">Master’s in Computational Science — Data Science • Aug 2024 – Present</p>
+          <p class="muted small">San Diego, California</p>
+        </div>
+
+        <div class="card">
+          <h3>Vellore Institute of Technology</h3>
+          <p class="muted">B.Tech in Computer Science and Engineering • Sep 2020 – May 2024</p>
+          <p class="muted small">Vellore, India</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Technical Skills</h3>
+
+        <p class="muted small">Languages</p>
+        <p>Java, Python, SQL, C/C++, JavaScript, HTML/CSS, MATLAB, Jax</p>
+
+        <p class="muted small" style="margin-top:10px;">Frameworks / Platforms</p>
+        <p>Oracle, Amazon AWS, Tableau, CSV, JSON</p>
+
+        <p class="muted small" style="margin-top:10px;">Developer Tools</p>
+        <p>Git, Docker, Google Cloud Platform, VS Code, Visual Studio, PyCharm, IntelliJ, Eclipse</p>
+
+        <p class="muted small" style="margin-top:10px;">Libraries</p>
+        <p>Pandas, NumPy, Matplotlib</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p class="muted">Fast ways to reach me.</p>
+      </div>
+
+      <div class="card">
+        <div class="contact-row">
+          <a class="btn" href="mailto:surinder.chhabra0000@gmail.com">Email me</a>
+          <button class="btn" id="copyEmailBtn" data-email="surinder.chhabra0000@gmail.com">Copy email</button>
+          <a class="btn" href="tel:+19252498204">Call: 925-249-8204</a>
+        </div>
+        <p class="muted small" id="copyStatus" aria-live="polite"></p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Leadership</h3>
+        <p class="muted">Outreach Head — TAG Gaming Club, VIT Vellore</p>
+        <ul class="bullets">
+          <li>Organized game design workshops on Unreal Engine; conducted technical workshops and events on game development.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>© <span id="year"></span> Surinder Singh Chhabra</span>
+      <span class="muted">Hosted on GitHub Pages</span>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
