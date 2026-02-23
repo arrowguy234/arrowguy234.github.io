@@ -37,14 +37,14 @@ themeBtn.addEventListener("click", () => {
 const chips = document.querySelectorAll(".chip");
 const projectCards = document.querySelectorAll("#projects .card"); // only filter project cards
 
-chips.forEach(chip => {
+chips.forEach((chip) => {
   chip.addEventListener("click", () => {
-    chips.forEach(c => c.classList.remove("active"));
+    chips.forEach((c) => c.classList.remove("active"));
     chip.classList.add("active");
 
     const filter = chip.dataset.filter;
 
-    projectCards.forEach(card => {
+    projectCards.forEach((card) => {
       const tags = (card.dataset.tags || "").split(" ").filter(Boolean);
       const show = filter === "all" || tags.includes(filter);
 
@@ -101,3 +101,62 @@ if (LIVE_DASHBOARD_URL && LIVE_DASHBOARD_URL.trim().length > 0) {
   // keep placeholder visible
   liveLink.href = "#";
 }
+
+// =========================
+// Scroll reveal (IntersectionObserver)
+// =========================
+const revealEls = document.querySelectorAll(".reveal");
+
+const io = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) e.target.classList.add("in");
+    });
+  },
+  { threshold: 0.12 }
+);
+
+revealEls.forEach((el) => io.observe(el));
+
+// =========================
+// Smooth anchor scroll with sticky header offset
+// =========================
+const header = document.querySelector(".topbar");
+const headerH = header ? header.offsetHeight : 0;
+
+document.querySelectorAll('a[href^="#"]').forEach((a) => {
+  a.addEventListener("click", (ev) => {
+    const id = a.getAttribute("href");
+    if (!id || id === "#") return;
+    const target = document.querySelector(id);
+    if (!target) return;
+
+    ev.preventDefault();
+    const y = target.getBoundingClientRect().top + window.scrollY - headerH - 10;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  });
+});
+
+// =========================
+// Subtle tilt on cards (desktop only)
+// =========================
+const tiltCards = document.querySelectorAll(".card");
+
+tiltCards.forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
+    if (window.matchMedia("(max-width: 920px)").matches) return;
+
+    const r = card.getBoundingClientRect();
+    const x = e.clientX - r.left;
+    const y = e.clientY - r.top;
+
+    const rx = ((y / r.height) - 0.5) * -6;
+    const ry = ((x / r.width) - 0.5) * 6;
+
+    card.style.transform = `translateY(-3px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "";
+  });
+});
